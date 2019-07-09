@@ -28,6 +28,52 @@ Depending on the value of provide.model, the data frame with the coefficients of
 \description{
 Fit a non-rectangular hyperbola to the photosynthetic light response (assimilation rate as a function of light) following Lambers et al. 2008, Thornley 1976, Farquhar & Sharkey 1982: \code{(A ~ ((phi * Q + Amax - sqrt((phi * Q + Amax)^2 - 4 * theta * phi * Q * Amax)) / 2 * theta) - Rd)} Uses \code{nls} for the curve fit using the algorithm \code{"port"}. Starting values for the initial curve fit (Amax, phi, Rd, theta) can be provided as a named list. Otherwise, a simple estimation of starting parameters takes place.
 }
+\examples{
+# A light response that can be fit with default settings
+p <- structure(list(Photo = c(-1.47735760973694, 0.607640418824763, 
+2.25569085178172, 4.57715647757407, 10.3609389085487, 14.9802351366038, 
+16.9201279124267, 19.2992412684557, 19.6156433699216, 19.5987435815687
+), PARi = c(0, 25, 50, 100, 250, 500, 750, 1250, 1500, 2000)), class = "data.frame",
+row.names = c(NA, 10L))
+# do the AQ fit
+FitAQ(data = p, A = Photo, Q = PARi)
+# Example how to provide custom start values
+my.start <- list(Amax = 20, phi = 0.05, Rd = 5, theta = 0.9)
+FitAQ(data = p, A = Photo, Q = PARi, start = my.start)
+
+# Instead of just the coefficients, return the actual model
+model <- FitAQ(data = p, A = Photo, Q = PARi, start = my.start, provide.model = TRUE)
+
+# predict model results over a wide x-axis range
+predict_range <- data.frame(Q = seq(from = 0, to = 4000, by = 50))
+my.line <- within(predict_range, A <- predict(model, newdata = predict_range))
+
+plot(Photo ~ PARi, data = p)
+lines(A ~ Q, data = my.line, col = "red")
+
+# Another plant where fit needs to be tweaked
+q <- structure(list(Photo = c(-5.1305665308579, -1.80737285839408, 
+1.29971850585751, 4.94585314505446, 13.9726643801131, 23.6419602864848, 
+28.9662664715206, 34.9085507079998, 37.3274268032741, 39.473492407329
+), PARi = c(0, 25, 50, 100, 250, 500, 750, 1250, 1500, 2000)), class = "data.frame", 
+row.names = 1597:1606)
+# creating a figure with wide margins to visualise differences between fits
+plot(Photo ~ PARi, data = q, xlim = c(0, 4000), ylim = c(0, 50))
+FitAQ(q, A = Photo, Q = PARi) # results in negative theta
+model.3 <- FitAQ(q, A = Photo, Q = PARi, provide.model = TRUE)
+my.line.3 <- within(predict_range, A <- predict(model.3, newdata = predict_range))
+lines(A ~ Q, data = my.line.3, col = "orange")
+# re-fit with constraints and start values:
+model.4 <- FitAQ(q, A = Photo, Q = PARi, 
+                 start = c(Amax = 50, phi = 0.09, Rd = 4, theta = 0.4),
+                 lower = c(0, 0, 0, 0),
+                 upper = c(56, 0.1, 10, 1),
+                 provide.model = TRUE,
+                 trace = TRUE)
+
+my.line.4 <- within(predict_range, A <- predict(model.4, newdata = predict_range))
+lines(A ~ Q, data = my.line.4, col = "green")
+}
 \references{
 Farquhar, Graham D., and Thomas D. Sharkey. ‘Stomatal Conductance and Photosynthesis’. Annual Review of Plant Physiology 33, no. 1 (1982): 317–345.
 
