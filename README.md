@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/MarkusLoew/FitAQ.svg?branch=master)](https://travis-ci.org/MarkusLoew/FitAQ)
-
 # FitAQ
 Yet another R package to analyse the relationship between photosynthetic assimilation rate and light. Fits a non-rectangular hyperbola of the form Photo ~ ((phi * PPFD + Amax - sqrt((phi * PPFD + Amax)^2 - 4 * theta * phi * PPFD * Amax)). Photo = assimilation rate, PPFD = light level, phi = initial slope, theta = curvature, and Rd = respiration.
 
