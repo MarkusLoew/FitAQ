@@ -15,7 +15,7 @@
 #'
 #' Lambers, Hans, F. Stuart Chapin III, and Thijs L. Pons. Plant Physiological Ecology. Springer Science & Business Media, 2008.
 #'
-#' Thornley, J. H. M. Mathematical Models in Plant Physiology: A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
+#' Thornley, J. H. M. Mathematical Models in Plant Physiology A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
 #' @examples
 #' \dontrun{
 #' # A light response that can be fit with default settings

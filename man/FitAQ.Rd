@@ -29,6 +29,7 @@ Depending on the value of provide.model, the data frame with the coefficients of
 Fit a non-rectangular hyperbola to the photosynthetic light response (assimilation rate as a function of light) following Lambers et al. 2008, Thornley 1976, Farquhar & Sharkey 1982: \code{(A ~ ((phi * Q + Amax - sqrt((phi * Q + Amax)^2 - 4 * theta * phi * Q * Amax)) / 2 * theta) - Rd)} Uses \code{nls} for the curve fit using the algorithm \code{"port"}. Starting values for the initial curve fit (Amax, phi, Rd, theta) can be provided as a named list. Otherwise, a simple estimation of starting parameters takes place.
 }
 \examples{
+\dontrun{
 # A light response that can be fit with default settings
 p <- structure(list(Photo = c(-1.47735760973694, 0.607640418824763, 
 2.25569085178172, 4.57715647757407, 10.3609389085487, 14.9802351366038, 
@@ -74,10 +75,11 @@ model.4 <- FitAQ(q, A = Photo, Q = PARi,
 my.line.4 <- within(predict_range, A <- predict(model.4, newdata = predict_range))
 lines(A ~ Q, data = my.line.4, col = "green")
 }
+}
 \references{
-Farquhar, Graham D., and Thomas D. Sharkey. ‘Stomatal Conductance and Photosynthesis’. Annual Review of Plant Physiology 33, no. 1 (1982): 317–345.
+Farquhar, Graham D., and Thomas D. Sharkey. 'Stomatal Conductance and Photosynthesis'. Annual Review of Plant Physiology 33, no. 1 (1982): 317–345.
 
 Lambers, Hans, F. Stuart Chapin III, and Thijs L. Pons. Plant Physiological Ecology. Springer Science & Business Media, 2008.
 
-Thornley, J. H. M. Mathematical Models in Plant Physiology : A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
+Thornley, J. H. M. Mathematical Models in Plant Physiology A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
 }
