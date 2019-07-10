@@ -11,11 +11,11 @@
 #' @param ... Other options to the underlying functions.
 #' @return Depending on the value of provide.model, the data frame with the coefficients of a non-rectangular hyperbola (Amax, phi, Rd, theta), is returned. When provide.model = TRUE, the curve fit model is returned.
 #' @references 
-#' Farquhar, Graham D., and Thomas D. Sharkey. ‘Stomatal Conductance and Photosynthesis’. Annual Review of Plant Physiology 33, no. 1 (1982): 317–345.
+#' Farquhar, Graham D., and Thomas D. Sharkey. 'Stomatal Conductance and Photosynthesis'. Annual Review of Plant Physiology 33, no. 1 (1982): 317–345.
 #'
 #' Lambers, Hans, F. Stuart Chapin III, and Thijs L. Pons. Plant Physiological Ecology. Springer Science & Business Media, 2008.
 #'
-#' Thornley, J. H. M. Mathematical Models in Plant Physiology : A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
+#' Thornley, J. H. M. Mathematical Models in Plant Physiology: A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
 #' @examples
 #' # A light response that can be fit with default settings
 #' p <- structure(list(Photo = c(-1.47735760973694, 0.607640418824763, 
