@@ -17,6 +17,7 @@
 #'
 #' Thornley, J. H. M. Mathematical Models in Plant Physiology: A Quantitative Approach to Problems in Plant and Crop Physiology. London; New York: Academic Press, 1976.
 #' @examples
+#' \dontrun{
 #' # A light response that can be fit with default settings
 #' p <- structure(list(Photo = c(-1.47735760973694, 0.607640418824763, 
 #' 2.25569085178172, 4.57715647757407, 10.3609389085487, 14.9802351366038, 
@@ -65,6 +66,7 @@
 #'
 #' my.line.4 <- within(predict_range, A <- predict(model.4, newdata = predict_range))
 #' lines(A ~ Q, data = my.line.4, col = "green")
+#' }
 #' @export
 
 
