@@ -12,6 +12,12 @@ Installation:
 	devtools::install_github("MarkusLoew/FitAQ")
 
 
+*Acknowledgement*
+
+The development of this package was supported by ARC grant LP130101183.
+
+
+
 ## FitAQ
 Fits a non-rectangular hyperbola to assimilation rate vs light. Uses nls with the "port" algorithm by default. Other nls algorithms can be selected as well see ?nls for details. It is possible to restrict the curve fit paramters to stay within a specified range (e.g. the curvature theta is supposed to be between 0 and 1) using the "upper" and "lower" arguments of nls when the "port" algorithm is used. Custom start values for the four curve fit parameters can be provided if the buit-in estimate for the start values is failing. See example below.
 

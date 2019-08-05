@@ -1,8 +1,8 @@
 Package: FitAQ
 Title: Fit a non-rectangular hyperbola to express the relationship between photosynthetic assimilation rate and light
 Version: 0.0.2
-Authors@R: person("Markus", "Loew", email = "m.loew@unimelb.edu.au", role = c("aut", "cre"))
-Description: Calculate a non-rectangular curve fit for the light response of photosynthetic assimilation rate, calculate light compensation point and calculate light level at which saturation of the assimilation rate occurs. And calculates a light response from the four parameters of the non-rectangular hyperbola.
+Authors@R: person("Markus", "Loew", email = "llow@swin.edu.au", role = c("aut", "cre"))
+Description: Calculate a non-rectangular curve fit for the light response of photosynthetic assimilation rate, calculate light compensation point and calculate light level at which saturation of the assimilation rate occurs. And calculates a light response from the four parameters of the non-rectangular hyperbola. Package development was supported by ARC grant LP130101183.
 Depends: R (>= 3.0.0)
 License: file LICENSE
 Encoding: UTF-8
